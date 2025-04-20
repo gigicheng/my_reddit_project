@@ -1,0 +1,29 @@
+@import 'normalize.css/normalize.css';
+ 
+body {
+    font-family: 'Merriweather Sans', 'Georgia', 'Times New Roman', serif;
+}
+
+ul {
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 11px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #eae7dc;
+    border-left: 1px dashed #9c8b7d;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #5a5a5a;
+    border-radius: 6px;
+    border: 2px solid #dcd6c3;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #3a3a3a;
+  }
+  

@@ -1,0 +1,18 @@
+.page {
+    flex: 1;
+    border-left: 1.5px solid var(--color-border);
+    padding: 1.8rem 3rem;
+    overflow-y: auto;
+}
+
+.page > ul {
+    list-style: none;
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    .page {
+        border: none;
+        padding: 1.8rem 2rem;
+    }
+}

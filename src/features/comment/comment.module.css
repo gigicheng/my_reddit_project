@@ -1,0 +1,10 @@
+.comment {
+    border: 2px solid var(--color-border);
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.comment:hover {
+    box-shadow: 0 4px 10px rgba(80, 50, 20, 0.2);
+    transition: box-shadow 0.3s ease;
+  }

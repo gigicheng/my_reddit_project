@@ -1,0 +1,21 @@
+.subreddits {
+    flex: 0 1 auto;
+    list-style: none;
+    min-width: 200px;
+    padding: 1rem 2rem;
+    margin: 0;
+    overflow-y: auto;
+}
+
+.subreddit {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 0;
+}
+
+@media (max-width: 700px) {
+    .subreddits {
+        width: 100%;
+        flex: 1;
+    }
+}
