@@ -6,13 +6,13 @@ import { fetchPage } from './pageSlice';
 
 export default function Page() {
   const dispatch = useDispatch()
-  const { selectedSubredditUrl, posts, status, error } = useSelector(state => state.page);
+  const { posts, status, error } = useSelector(state => state.page);
 
   useEffect(() => {
     if (status === 'idle') { // 開啟網頁時渲染 page 為 /r/Home (selectedSubredditUrl: /r/Home)
-      dispatch(fetchPage(selectedSubredditUrl))
+      dispatch(fetchPage())
     }
-  }, [dispatch, selectedSubredditUrl, status]);
+  }, [dispatch, status]);
 
   function renderPage() {
     if (status === 'loading') {

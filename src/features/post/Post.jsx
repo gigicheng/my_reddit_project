@@ -9,7 +9,7 @@ import { fetchComment } from '../comment/commentSlice';
 import Markdown from 'react-markdown';
 
 
-// todo list: 1.圖片
+// todo list: 1.圖片 2.將 showComments 的 flag 挪到 post 裡面，在 addCase fetchComments.pendign 時切換(showComments != showComments)，進而增加 Post 與 Comments 的組件 rerender 的效能。
 
 // pic={post.thumbnail}
 // picHeight={post.thumbnail_height}
@@ -27,6 +27,21 @@ export default function Post({ post }) {
             dispatch(fetchComment(postPermalink))
         }
     }, [dispatch, showComments, postPermalink]);
+
+    function getImageUrl(postUrl) {
+        if (postUrl && postUrl.match(/\.(jpeg|jpg|gif|png|webp)$/)) {
+            return (
+                <>
+                    <img
+                        src={postUrl}
+                        alt='Post image'
+                        style={{ maxWidth: '100%', borderRadius: '8px' }}
+                    />
+                </>
+            );
+        }
+        return null
+    };
 
     function timeAgo(timestamp) {
         // console.log(timestamp);
@@ -101,6 +116,7 @@ export default function Post({ post }) {
                 </div>
                 <p style={{ fontSize: '20px', fontWeight: 'bold', wordBreak: 'break-all' }}>{post.title}</p>
                 <Markdown children={post.selftext} />
+                {getImageUrl(post.url)}
             </div>
             <div className={styles.tool}>
                 <div className={styles.likeNum}>

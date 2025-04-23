@@ -3,7 +3,7 @@ import { AiFillCaretRight } from "react-icons/ai";
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchSubreddits } from './subredditsSlice';
-import { fetchPage } from '../page/pageSlice';
+import { fetchPage, setSelectedSubredditUrl, setSearchTerm } from '../page/pageSlice';
 
 export default function Subreddits() {
     const dispatch = useDispatch();
@@ -17,13 +17,15 @@ export default function Subreddits() {
     }, [dispatch, status]);
 
     const handleClickSubreddit = (subredditUrl) => { // 點擊 subreddit 時渲染 page
-        console.log('subredditUrl:', subredditUrl);
-        dispatch(fetchPage(subredditUrl));
+        // console.log('subredditUrl:', subredditUrl);
+        dispatch(setSearchTerm(''));
+        dispatch(setSelectedSubredditUrl(subredditUrl));
+        dispatch(fetchPage());
     };
 
     function renderList() {
         if (status === 'loading') {
-            return (<p>Loading...</p>)
+            return (<p style={{height: 'calc(100vh - 253px)'}}>Loading...</p>)
         }
         if (status === 'failed') {
             return (<p>Error: {error}</p>)
