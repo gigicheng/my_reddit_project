@@ -38,9 +38,24 @@ export default function Post({ post }) {
                         style={{ maxWidth: '100%', borderRadius: '8px' }}
                     />
                 </>
-            );
-        }
-        return null
+            )
+        };
+        return null;
+    };
+
+    function getMediaUrl(isVideo, media) {
+        if (isVideo === true) {
+            return (
+                <video 
+                    controls={true} 
+                    width={media?.reddit_video?.width} 
+                    height={media?.reddit_video?.height} 
+                    src={media?.reddit_video?.fallback_url}
+                    style={{borderRadius: '8px'}}
+                />
+            )
+        };
+        return null;
     };
 
     function timeAgo(timestamp) {
@@ -117,6 +132,7 @@ export default function Post({ post }) {
                 <p style={{ fontSize: '20px', fontWeight: 'bold', wordBreak: 'break-all' }}>{post.title}</p>
                 <Markdown children={post.selftext} />
                 {getImageUrl(post.url)}
+                {getMediaUrl(post.is_video, post.media)}
             </div>
             <div className={styles.tool}>
                 <div className={styles.likeNum}>
@@ -127,7 +143,7 @@ export default function Post({ post }) {
                 <div>
                     <button
                         disabled={post.num_comments === 0}
-                        className={`${styles.btn}  ${post.num_comments === 0 && styles.btnDisabled}`} 
+                        className={`${styles.btn}  ${post.num_comments === 0 && styles.btnDisabled}`}
                         onClick={handleClickComments}
                     >
                         <CgComment style={{ paddingRight: '0.5rem' }} />
