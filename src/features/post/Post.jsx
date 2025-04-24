@@ -8,12 +8,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchComment } from '../comment/commentSlice';
 import Markdown from 'react-markdown';
 
-
-// todo list: 1.圖片 2.將 showComments 的 flag 挪到 post 裡面，在 addCase fetchComments.pendign 時切換(showComments != showComments)，進而增加 Post 與 Comments 的組件 rerender 的效能。
-
-// pic={post.thumbnail}
-// picHeight={post.thumbnail_height}
-// picWidth={post.thumbnail_width}
+// todo list: 將 showComments 的 flag 挪到 post 裡面，
+// 在 addCase fetchComments.pendign 時切換(showComments != showComments)，
+// 增加 Post 與 Comments 的組件 rerender 的效能。
 
 export default function Post({ post }) {
     const [showComments, setShowComments] = useState(false);
@@ -31,13 +28,25 @@ export default function Post({ post }) {
     function getImageUrl(postUrl) {
         if (postUrl && postUrl.match(/\.(jpeg|jpg|gif|png|webp)$/)) {
             return (
-                <>
+                <div style={{
+                    aspectRatio: 1,
+                    minHeight: '220px',
+                    maxHeight: 'min(100%, 540px)',
+                }}>
                     <img
                         src={postUrl}
                         alt='Post image'
-                        style={{ maxWidth: '100%', borderRadius: '8px' }}
+                        style={{ 
+                            width: '100%',
+                            maxWidth: '100%', 
+                            height: '100%',
+                            maxHeight: '100vw',
+                            objectFit: 'contain',
+                            background: '#000',
+                            borderRadius: '8px',
+                        }}
                     />
-                </>
+                </div>
             )
         };
         return null;
@@ -46,12 +55,22 @@ export default function Post({ post }) {
     function getMediaUrl(isVideo, media) {
         if (isVideo === true) {
             return (
-                <video 
+                <video
                     controls={true} 
-                    width={media?.reddit_video?.width} 
-                    height={media?.reddit_video?.height} 
+                    // width={media?.reddit_video?.width}
+                    // height={media?.reddit_video?.height}
                     src={media?.reddit_video?.fallback_url}
-                    style={{borderRadius: '8px'}}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        minHeight: '220px', 
+                        maxHeight: 'min(100%, 540px)', 
+                        aspectRatio: 1, 
+                        objectFit: 'contain', 
+                        background: '#000', 
+                        borderRadius: '8px', 
+                        outline: 0,
+                    }}
                 />
             )
         };
