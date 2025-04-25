@@ -1,4 +1,4 @@
-import styles from './post.module.css';
+import styles from './post.module.scss';
 import { PiArrowFatUp } from 'react-icons/pi';
 import { PiArrowFatDown } from 'react-icons/pi';
 import { CgComment } from 'react-icons/cg';
@@ -162,7 +162,7 @@ export default function Post({ post }) {
                 <div>
                     <button
                         disabled={post.num_comments === 0}
-                        className={`${styles.btn}  ${post.num_comments === 0 && styles.btnDisabled}`}
+                        className={`${styles.btn} ${post.num_comments === 0 && styles.btnDisabled}`}
                         onClick={handleClickComments}
                     >
                         <CgComment style={{ paddingRight: '0.5rem' }} />

@@ -1,4 +1,4 @@
-import styles from './header.module.css';
+import styles from './header.module.scss';
 import { PiRedditLogoFill } from "react-icons/pi";
 import { LuSearch } from "react-icons/lu";
 import { useDispatch, useSelector } from 'react-redux';

@@ -1,7 +1,7 @@
   :root {
     --color-text-primary: #202020;
     --color-border: #202020;
-    --color-backgroung: #f4f1e9;
+    --color-background: #f4f1e9;
   }
 
   html,
@@ -21,7 +21,7 @@
     display: flex;
     width: 100%;
     flex: 1;
-    background: var(--color-backgroung);
+    background: var(--color-background);
     background-image: url('./assets/paperlike.png');
     background-repeat: repeat;
     background-size: auto;

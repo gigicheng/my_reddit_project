@@ -1,4 +1,4 @@
-import styles from './comment.module.css';
+import styles from './comment.module.scss';
 import Markdown from 'react-markdown';
 
 export default function Comment({id, author, text}) {

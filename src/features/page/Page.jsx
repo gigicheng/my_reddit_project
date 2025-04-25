@@ -1,4 +1,4 @@
-import styles from './page.module.css';
+import styles from './page.module.scss';
 import Post from '../post/Post';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';

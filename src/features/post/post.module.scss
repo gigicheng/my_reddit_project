@@ -1,0 +1,47 @@
+.post {
+    width: 100%;
+    border-top: 1.5px dashed var(--color-border);
+
+    .content {
+        padding: 1rem 2rem;
+        min-height: 150px;
+    }
+
+    .tool {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media (max-width: 700px) {
+            & {
+                flex-wrap: wrap;
+            }
+        }
+
+        .likeNum {
+            display: flex;
+            align-items: center;
+        }
+
+        .btn {
+            background-color: transparent;
+            border: none;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+            
+            &:active {
+                transform: scale(0.9);
+            }
+        }
+
+        .btnDisabled{
+            &:hover,
+            &:active {
+                transform: none;
+            }
+        }
+    }
+}
+
